@@ -82,14 +82,7 @@ const TeamOne = () => {
               <h1 className="text-4xl font-bold text-gray-900">
                 Let&apos;s Meet Our Team
               </h1>
-              {/* <div className="flex gap-2">
-                <Button variant="outline" className="rounded-full">
-                  About Us
-                </Button>
-                <Button className="rounded-full text-white bg-blue-600 hover:bg-blue-700">
-                  Job Openings
-                </Button>
-              </div> */}
+              
             </div>
             <p className="text-gray-500 max-w-2xl">
               Gravida in fermentum et sollicitudin ac orci phasellus egestas.

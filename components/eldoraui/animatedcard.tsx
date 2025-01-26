@@ -3,6 +3,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { useMouse } from "./hooks/usemouse";
 import { cn } from "@/lib/utils";
+import { StaggeredFade } from "../fadein"; // Import the StaggeredFade component
 
 export const MainMenusGradientCard = ({
   title,
@@ -35,7 +36,9 @@ export const MainMenusGradientCard = ({
       <div
         className={cn(
           "absolute -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-full transition-transform duration-500 group-hover:scale-[3]",
-          mouse.elementX === null || mouse.elementY === null ? "opacity-0" : "opacity-100"
+          mouse.elementX === null || mouse.elementY === null
+            ? "opacity-0"
+            : "opacity-100"
         )}
         style={{
           maskImage: `radial-gradient(${circleSize / 2}px circle at center, white, transparent)`,
@@ -43,7 +46,7 @@ export const MainMenusGradientCard = ({
           height: `${circleSize}px`,
           left: `${mouse.elementX}px`,
           top: `${mouse.elementY}px`,
-          background: "linear-gradient(135deg, #3BC4F2, #7A69F9,#F26378,#F5833F)",
+          background: "linear-gradient(135deg, #3BC4F2, #7A69F9, #F26378, #F5833F)",
         }}
       />
 
@@ -55,16 +58,18 @@ export const MainMenusGradientCard = ({
         <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-300">
           {title}
         </h3>
-        <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-          {description}
-        </p>
+        {/* Use StaggeredFade for the description */}
+        <StaggeredFade
+          text={description}
+          className="mt-2 text-neutral-600 dark:text-neutral-400"
+        />
       </div>
 
       {/* Render children if available */}
       {children && (
         <div
           className={cn(
-            "gird relative h-20 place-content-center overflow-hidden rounded-[15px] border-white  dark:border-neutral-950 dark:bg-black/50",
+            "relative h-20 place-content-center overflow-hidden rounded-[15px] bg-white/70 dark:bg-black/50",
             className
           )}
         >

@@ -6,6 +6,8 @@ import { ArrowRight, Award, Users, Zap } from 'lucide-react'
 import { GradualSpacing } from '@/components/eldoraui/gradualspacing'
 import { AuroraText } from '@/components/ui/AuroraText'
 import TeamOne from '@/components/Team'
+import { StaggeredFade } from '@/components/fadein'
+import { MainMenusGradientCard } from '@/components/eldoraui/animatedcard'
 
 const AboutPage = () => {
   return (
@@ -67,34 +69,58 @@ const WhatWeDo = () => (
 
 const OurHighlights = () => {
   const highlights = [
-    { icon: Zap, title: "Fast Delivery", description: "We pride ourselves on quick and efficient project delivery." },
-    { icon: Users, title: "Client-Centric", description: "Our approach always puts the client's needs first." },
-    { icon: Award, title: "Award-Winning", description: "Recognized for excellence in our industry." },
-  ]
+    {
+      icon: Zap,
+      title: "Fast Delivery",
+      description:
+        "Time is of the essence, and at EventAura, we prioritize efficiency at every stage. From setting up events to generating dynamic QR tickets, our platform ensures swift, hassle-free processes. With automated systems and streamlined workflows, we help you go live with your event in record time, giving you the competitive edge you need.",
+    },
+    {
+      icon: Users,
+      title: "Client-Centric",
+      description:
+        "At EventAura, you’re at the heart of everything we do. From intuitive tools to secure payment integrations and real-time analytics, our solutions are tailored to your unique needs. Whether organizing workshops or large conferences, we ensure seamless event management. Your success inspires us, and we’re here to make it stress-free.",
+    },
+    {
+      icon: Award,
+      title: "Award-Winning",
+      description:
+        "EventAura combines innovative technology with exceptional service, earning industry recognition and client trust worldwide. Our secure, simple, and data-driven platform empowers organizers with real-time analytics, scalability, and customizable features. From small events to global conferences, we consistently deliver award-winning solutions that redefine event management and set new standards of excellence.",
+    },
+  ];
 
   return (
     <section className="py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Our Highlights</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto px-8">
+        <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">
+          Our Highlights
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
           {highlights.map((highlight, index) => (
-            <motion.div 
+            <motion.div
               key={index}
-              className="p-6 rounded-lg border border-gray-200 shadow-sm"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <highlight.icon className="w-12 h-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">{highlight.title}</h3>
-              <p className="text-gray-600">{highlight.description}</p>
+              <MainMenusGradientCard
+                title={highlight.title}
+                description={highlight.description}
+                withArrow={false}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <highlight.icon className="w-12 h-12 text-blue-500 mb-4" />
+                </div>
+              </MainMenusGradientCard>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
-  )
-}
+  </div>
+</section>
+
+  );
+};
+
 
 const OurMission = () => (
   <section className="py-16">
@@ -109,7 +135,7 @@ const OurMission = () => (
         <p className="text-lg text-gray-600 mb-8">
         Elevate your event experience with EventAura, 
         the all-in-one platform that combines event management tools with seamless financial services. 
-        Whether you're organizing paid conferences, workshops, or free gatherings, EventAura simplifies
+        Whether you&apos;re organizing paid conferences, workshops, or free gatherings, EventAura simplifies
          the process. Empower your student-driven communities and college clubs with effortless 
          registration, secure payments, and comprehensive event management features.
         </p>

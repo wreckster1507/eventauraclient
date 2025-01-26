@@ -1,5 +1,6 @@
 
 
+
 // "use client";
 
 // import { cn } from "@/lib/utils";
@@ -29,7 +30,9 @@
 //   }, [pathname, links]);
 
 //   return (
-//     <div className="w-full h-full flex flex-row ml-4 mt-5">
+//     <div
+//       className="w-full flex flex-row ml-4 mt-5 sticky top-2  z-50"
+//     >
 //       <div className="hidden sm:block">
 //         <MorphingText texts={["Event", "Aura"]} />
 //       </div>
@@ -78,11 +81,13 @@
 // export default Liquid;
 
 
+
+
 "use client";
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useRouter, usePathname } from "next/navigation"; // For navigation and getting the current path
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import MorphingText from "./eldoraui/morphingtext";
 
@@ -94,22 +99,28 @@ const Liquid = () => {
     { name: "contact", url: "/contact" },
   ];
 
-  const router = useRouter(); // Next.js router for navigation
-  const pathname = usePathname(); // Get the current URL path
+  const router = useRouter();
+  const pathname = usePathname();
   const [currentLink, setCurrentLink] = useState(0);
 
-  // Update the current link based on the current pathname
   useEffect(() => {
-    const index = links.findIndex((link) => link.url === pathname);
-    if (index !== -1) {
-      setCurrentLink(index);
+    let index = links.findIndex((link) => {
+      if (link.url === "/events") {
+        // Match "/events" and any subpath like "/events/:id"
+        return pathname.startsWith("/events");
+      }
+      return link.url === pathname;
+    });
+
+    if (index === -1) {
+      index = 0; // Default to "home" if no match
     }
+
+    setCurrentLink(index);
   }, [pathname, links]);
 
   return (
-    <div
-      className="w-full flex flex-row ml-4 mt-5 sticky top-2  z-50"
-    >
+    <div className="w-full flex flex-row ml-4 mt-5 sticky top-2 z-50">
       <div className="hidden sm:block">
         <MorphingText texts={["Event", "Aura"]} />
       </div>
@@ -139,7 +150,7 @@ const Liquid = () => {
             <motion.li
               key={index}
               onClick={() => {
-                router.push(link.url); // Navigate to the URL
+                router.push(link.url);
               }}
               className={cn(
                 "bg-black text-white px-7 h-full items-center mx-0 transition-all duration-500 cursor-pointer justify-center flex capitalize font-bold",

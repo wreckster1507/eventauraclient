@@ -270,36 +270,6 @@ const steps: Step[] = [
       buttonIcon: <ExternalLink className="w-4 h-4 ml-2" />,
     },
   },
-  {
-    id: 4,
-    title: "Brand Your Reviews",
-    isCompleted: true,
-    content: {
-      steps: [
-        "Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus.",
-        "Integer quis auctor elit sed vulputate mi sit amet mauris.",
-        "Purus sit amet volutpat consequat mauris nunc congue nisi vitae.",
-        "Ut pharetra sit amet aliquam id diam maecenas ultricies mi.",
-      ],
-      buttonText: "Brand Reviews",
-      buttonIcon: <ExternalLink className="w-4 h-4 ml-2" />,
-    },
-  },
-  {
-    id: 5,
-    title: "Begin Automated Review Collection",
-    isCompleted: true,
-    content: {
-      steps: [
-        "Erat imperdiet sed euismod nisi porta lorem mollis aliquam.",
-        "Nunc congue nisi vitae suscipit tellus mauris a diam maecenas.",
-        "Et malesuada fames ac turpis egestas maecenas pharetra convallis.",
-        "Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero.",
-      ],
-      buttonText: "Setup Automated Emails",
-      buttonIcon: <ExternalLink className="w-4 h-4 ml-2" />,
-    },
-  },
   
 ];
 

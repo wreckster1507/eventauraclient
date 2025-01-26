@@ -3,6 +3,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { useMouse } from "./hooks/usemouse";
 import { cn } from "@/lib/utils";
+import { StaggeredFade } from "../fadein"; // Import the StaggeredFade component
 
 export const MainMenusGradientCard = ({
   title,
@@ -34,7 +35,7 @@ export const MainMenusGradientCard = ({
           "absolute -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-full transition-transform duration-500 group-hover:scale-[3]",
           mouse.elementX === null || mouse.elementY === null
             ? "opacity-0"
-            : "opacity-100",
+            : "opacity-100"
         )}
         style={{
           maskImage: `radial-gradient(${
@@ -52,8 +53,8 @@ export const MainMenusGradientCard = ({
       {children && (
         <div
           className={cn(
-            "gird relative h-40 place-content-center overflow-hidden rounded-[15px] border-white bg-white/70 dark:border-neutral-950 dark:bg-black/50",
-            className,
+            "grid relative h-40 place-content-center overflow-hidden rounded-[15px] border-white bg-white/70 dark:border-neutral-950 dark:bg-black/50",
+            className
           )}
         >
           {children}
@@ -63,9 +64,8 @@ export const MainMenusGradientCard = ({
         <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-300">
           {title}
         </h3>
-        <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-          {description}
-        </p>
+        {/* Replace the description <p> with StaggeredFade */}
+        <StaggeredFade text={description} className="mt-2 text-neutral-600 dark:text-neutral-400" />
       </div>
     </div>
   );

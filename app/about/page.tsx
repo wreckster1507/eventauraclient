@@ -7,6 +7,7 @@ import { GradualSpacing } from '@/components/eldoraui/gradualspacing'
 import { AuroraText } from '@/components/ui/AuroraText'
 import TeamOne from '@/components/Team'
 import { StaggeredFade } from '@/components/fadein'
+import { MainMenusGradientCard } from '@/components/eldoraui/animatedcard'
 
 const AboutPage = () => {
   return (
@@ -89,7 +90,7 @@ const OurHighlights = () => {
   ];
 
   return (
-    <section className="py-16 ">
+    <section className="py-16">
       <div className="container mx-auto px-8">
         <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">
           Our Highlights
@@ -98,21 +99,25 @@ const OurHighlights = () => {
           {highlights.map((highlight, index) => (
             <motion.div
               key={index}
-              className="p-6 rounded-lg border border-gray-200 shadow-sm"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <highlight.icon className="w-12 h-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                {highlight.title}
-              </h3>
-              <StaggeredFade text={highlight.description} className="text-gray-800 text-justify" />
+              <MainMenusGradientCard
+                title={highlight.title}
+                description={highlight.description}
+                withArrow={false}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <highlight.icon className="w-12 h-12 text-blue-500 mb-4" />
+                </div>
+              </MainMenusGradientCard>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+  </div>
+</section>
+
   );
 };
 

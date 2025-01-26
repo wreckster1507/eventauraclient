@@ -1,10 +1,24 @@
-
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MainMenusGradientCard } from "./eldoraui/animatedcard";
 import FAQ from "./FAQ";
+import { Mail, Linkedin, Instagram } from "lucide-react"; // Ensure these icons are imported
+
+const Socials = () => (
+  <div className="flex space-x-4">
+    <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+      <Mail className="w-5 h-5" />
+    </a>
+    <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+      <Linkedin className="w-5 h-5" />
+    </a>
+    <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+      <Instagram className="w-5 h-5" />
+    </a>
+  </div>
+);
+
 export function ContactForm() {
   return (
     <div className="min-h-[calc(100vh-2rem)] rounded-xl py-10 px-4 sm:px-6 lg:px-8">
@@ -21,35 +35,21 @@ export function ContactForm() {
           <div className="space-y-10 animate-fade-in delay-200">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <MainMenusGradientCard
-                description="Support@eventaura.tech"
+                description="support@eventaura.tech"
                 title="Email Address"
               />
-              <MainMenusGradientCard
-                description="I can't believe how easy it is to use"
-                title="Unbelievable"
-              />
-              <MainMenusGradientCard
-                description="I can't believe how easy it is to use"
-                title="Unbelievable"
-              />
-              <MainMenusGradientCard
-                description="I can't believe how easy it is to use"
-                title="Unbelievable"
-              />
+              <MainMenusGradientCard title="Socials" description="Connect with us!">
+                <Socials/>
+              </MainMenusGradientCard>
             </div>
             <FAQ />
           </div>
           <Card className="bg-white/50 backdrop-blur-sm border-neutral-200/50 shadow-xl animate-fade-in delay-300">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-black mb-8">
-                Send us a Message
-              </h2>
+              <h2 className="text-2xl font-bold text-black mb-8">Send us a Message</h2>
               <form className="space-y-6">
                 {["name", "email", "message"].map((field) => (
-                  <div
-                    key={field}
-                    className="group relative transition-all duration-300"
-                  >
+                  <div key={field} className="group relative transition-all duration-300">
                     <label
                       htmlFor={field}
                       className="absolute -top-2 left-3 px-1 text-xs font-medium text-gray-600 bg-white"

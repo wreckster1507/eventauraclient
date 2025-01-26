@@ -1,8 +1,7 @@
 "use client";
  
 import { FaSearch } from "react-icons/fa";
- 
-import { useState, useEffect, useRef } from "react";
+import { useState} from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
  
@@ -11,7 +10,7 @@ export const ModernSearchBar = () => {
  
   return (
     <>
-      <div className="flex items-center p-1 rounded-full  max-w-[30rem] w-full border border-primary/10 border-opacity-10 gap-1">
+      <div className="flex items-center p-1 rounded-full  max-w-[30rem] w-full border border-primary/10 border-opacity-10 gap-">
         <Input
           className="rounded-full py-3 w-full border-0 shadow-none focus-visible:ring-0"
           placeholder="Search"

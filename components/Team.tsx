@@ -2,73 +2,59 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Facebook, Linkedin } from "lucide-react";
+// import { Button } from "@/components/ui/button";
+import { Linkedin } from "lucide-react";
 
 interface TeamMember {
   name: string;
   role: string;
   roleColor: string;
-  bio: string;
   image: string;
+  linkedin: string;
 }
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Emma Watson",
+    name: "Sindhu Ravuri",
     role: "Founder & CEO",
     roleColor: "text-blue-500",
-    bio: "Used to work at IBM but quit because of robotz.",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
+    image: "/images/shree.jpeg",
+    linkedin:"https://www.linkedin.com/in/sindhu-ravuri/"
   },
   {
-    name: "Liam Brown",
-    role: "Lead Design",
+    name: "Varun Harinath",
+    role: "Co-founder & Lead Software Engineer",
     roleColor: "text-blue-500",
-    bio: "Hello, I like not doing anything at all. Let's DM.",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
+    image: "/images/varun.jpeg",
+    linkedin:"https://www.linkedin.com/in/varun-harinath/"
   },
   {
-    name: "Sophia Davis",
-    role: "Lead Engineering",
+    name: "Sarthak Aitha",
+    role: "CTO & Technology Team Lead",
     roleColor: "text-blue-500",
-    bio: "Prodigy with record-breaking 176 IQ and many awards.",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
+    image: "/images/sarthak.jpeg",
+    linkedin:"https://www.linkedin.com/in/sarthak-aitha-943534252/"
   },
   {
-    name: "Noah Wilson",
-    role: "Lead Finance",
+    name: "Akshay Rachakonda",
+    role: "Frontend Developer",
     roleColor: "text-blue-500",
-    bio: "Hello, I like money. It is the only purpose of in my life.",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
+    image: "/images/akshayR.jpeg",
+    linkedin:"https://www.linkedin.com/in/akshay-rachakonda/"
   },
   {
-    name: "Isabella Martinez",
-    role: "Janitor",
+    name: "Akshay Sakinam",
+    role: "Frontend Developer",
     roleColor: "text-blue-500",
-    bio: "I'm just here to clean the floor, that's all. Nothing special.",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
+    image: "/images/akshayS.jpeg",
+    linkedin:"https://www.linkedin.com/in/akshay-sakinam-516502255/"
   },
   {
-    name: "James Anderson",
-    role: "Marketing Department",
+    name: "Ratna Sunandita",
+    role: "Frontend Developer",
     roleColor: "text-blue-500",
-    bio: "I don't choose this job. It choose me. Do you get it?",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
-  },
-  {
-    name: "Mai Senpai",
-    role: "Human Resources",
-    roleColor: "text-blue-500",
-    bio: "I like managing people and controlling them.",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
-  },
-  {
-    name: "Saylor Twift",
-    role: "Middle Management",
-    roleColor: "text-blue-500",
-    bio: "Ex-Singer but decided to work on startups.",
-    image: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
+    image: "/images/ratna.jpeg",
+    linkedin:"https://www.linkedin.com/in/ratna-sunanditha-vanama/"
   },
 ];
 
@@ -84,13 +70,9 @@ const TeamOne = () => {
               </h1>
               
             </div>
-            <p className="text-gray-500 max-w-2xl">
-              Gravida in fermentum et sollicitudin ac orci phasellus egestas.
-              Molestie a iaculis at erat pellentesque adipiscing commodo.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
             {teamMembers.map((member) => (
               <div
                 key={member.name}
@@ -111,12 +93,8 @@ const TeamOne = () => {
                 <p className={`${member.roleColor} font-medium mb-2`}>
                   {member.role}
                 </p>
-                <p className="text-gray-500 mb-4">{member.bio}</p>
                 <div className="flex items-center gap-2">
-                  <Link href="#" className="text-gray-400 hover:text-gray-600">
-                    <Facebook className="w-5 h-5" />
-                  </Link>
-                  <Link href="#" className="text-gray-400 hover:text-gray-600">
+                  <Link href={member.linkedin} className="text-gray-400 hover:text-gray-600">
                     <Linkedin className="w-5 h-5" />
                   </Link>
                 </div>

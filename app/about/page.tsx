@@ -130,7 +130,7 @@ const OurMission = () => (
         <p className="text-lg text-gray-600 mb-8">
         Elevate your event experience with EventAura, 
         the all-in-one platform that combines event management tools with seamless financial services. 
-        Whether you're organizing paid conferences, workshops, or free gatherings, EventAura simplifies
+        Whether you&apos;re organizing paid conferences, workshops, or free gatherings, EventAura simplifies
          the process. Empower your student-driven communities and college clubs with effortless 
          registration, secure payments, and comprehensive event management features.
         </p>

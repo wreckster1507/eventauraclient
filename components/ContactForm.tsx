@@ -39,7 +39,7 @@ export function ContactForm() {
                 title="Email Address"
               />
               <MainMenusGradientCard title="Socials" description="Connect with us!">
-                <Socials/>
+                <span className="flex justify-center"><Socials/></span>
               </MainMenusGradientCard>
             </div>
             <FAQ />
@@ -49,10 +49,10 @@ export function ContactForm() {
               <h2 className="text-2xl font-bold text-black mb-8">Send us a Message</h2>
               <form className="space-y-6">
                 {["name", "email", "message"].map((field) => (
-                  <div key={field} className="group relative transition-all duration-300">
+                  <div key={field} className="group relative transition-all duration-300 ">
                     <label
                       htmlFor={field}
-                      className="absolute -top-2 left-3 px-1 text-xs font-medium text-gray-600 bg-white"
+                      className="absolute -top-2 left-3 px-1 text-xs font-medium text-gray-600 bg-white "
                     >
                       {field.charAt(0).toUpperCase() + field.slice(1)}*
                     </label>

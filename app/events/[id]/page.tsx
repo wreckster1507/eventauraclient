@@ -1,169 +1,244 @@
 
 
+// "use client"
 
-
-// 'use client';
-
-// import { Calendar, MapPin, Users, Clock, Mail, Phone, CreditCard } from "lucide-react";
-// import { Card } from "@/components/ui/card";
-// import { Button } from "@/components/ui/button";
-// import { Separator } from "@/components/ui/separator";
-// import axios from "axios";
-// import { format } from "date-fns";
-// import { useEffect, useState } from "react";
-
+// import Link from "next/link"
+// import { Calendar, MapPin,  Clock, Mail, Phone, CreditCard } from "lucide-react"
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Button } from "@/components/ui/button"
+// import { Separator } from "@/components/ui/separator"
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+// import axios from "axios"
+// import { format } from "date-fns"
+// import { useEffect, useState } from "react"
+// import { motion } from "framer-motion"
 
 // const EventDetail = ({ params }: { params: { id: string } }) => {
-//   const { id } = params;
-//   const [event, setEvent] = useState<any>(null);
-//   const [loading, setLoading] = useState<boolean>(true);
-
-  
+//   const { id } = params
+//   const [event, setEvent] = useState<any>(null)
+//   const [loading, setLoading] = useState<boolean>(true)
 
 //   useEffect(() => {
 //     const fetchEventDetails = async () => {
 //       try {
-//         const response = await axios.get(`https://api.eventaura.tech/event/${id}`);
-//         setEvent(response.data.data);
+//         const response = await axios.get(`https://api.eventaura.tech/event/${id}`)
+//         setEvent(response.data.data)
 //       } catch (error) {
-//         console.error("Error fetching event details:", error);
+//         console.error("Error fetching event details:", error)
 //       } finally {
-//         setLoading(false);
+//         setLoading(false)
 //       }
-//     };
+//     }
 
-//     fetchEventDetails();
-//   }, [id]);
+//     fetchEventDetails()
+//   }, [id])
 
 //   if (loading) {
-//     return <div>Loading...</div>;
+//     return (
+//       <div className="flex items-center justify-center min-h-screen">
+//         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+//       </div>
+//     )
 //   }
 
 //   if (!event) {
-//     return <div>Error fetching event details.</div>;
+//     return (
+//       <div className="flex items-center justify-center min-h-screen">
+//         <p className="text-2xl text-gray-600">Error fetching event details.</p>
+//       </div>
+//     )
 //   }
 
 //   return (
-//     <div className="min-h-screen">
+//     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
 //       {/* Hero Section */}
-//       <div className="w-full bg-gradient-to-r from-[#D3E4FD] to-blue-50 py-16 animate-fade-in">
+//       <motion.div
+//         initial={{ opacity: 0, y: -50 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.5 }}
+//         className="w-full bg-gradient-to-r from-blue-600 to-blue-400 py-20 text-white"
+//       >
 //         <div className="container mx-auto px-4">
-//           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 animate-scale-in">
-//             {event.eventName}
-//           </h1>
-//           <div className="flex items-center text-[#1EAEDB] space-x-2">
+//           <h1 className="text-4xl md:text-6xl font-bold mb-4">{event.eventName}</h1>
+//           <div className="flex items-center space-x-2 text-blue-100">
 //             <Calendar className="w-5 h-5" />
 //             <span>{format(new Date(event.eventDate), "MMMM d, yyyy")}</span>
 //           </div>
 //         </div>
-//       </div>
+//       </motion.div>
 
 //       <div className="container mx-auto px-4 py-12">
 //         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 //           {/* Main Content */}
 //           <div className="lg:col-span-2 space-y-8">
 //             {/* Description */}
-//             <Card className="p-6 hover:shadow-lg transition-shadow animate-fade-in">
-//               <h2 className="text-2xl font-semibold mb-4">About the Event</h2>
-//               <p className="text-gray-700 whitespace-pre-line">{event.eventDescription}</p>
-//             </Card>
+//             <motion.div
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, delay: 0.2 }}
+//             >
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>About the Event</CardTitle>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <p className="text-gray-700 whitespace-pre-line">{event.eventDescription}</p>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
 
 //             {/* Speakers */}
-//             <Card className="p-6 hover:shadow-lg transition-shadow animate-fade-in delay-100">
-//               <h2 className="text-2xl font-semibold mb-4">Speakers</h2>
-//               <div className="flex flex-wrap gap-4">
-//                 {event.eventSpeaker.split(",").map((speaker, index) => (
-//                   <div
-//                     key={index}
-//                     className="bg-[#D3E4FD] text-[#0FA0CE] px-4 py-2 rounded-full text-sm"
-//                   >
-//                     {speaker.trim()}
+//             <motion.div
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, delay: 0.4 }}
+//             >
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Speakers</CardTitle>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex flex-wrap gap-2">
+//                     {event.eventSpeaker.split(",").map((speaker, index) => {
+//                       const colors = ["amber-500", "blue-500", "green-500", "purple-500", "pink-500", "indigo-500"]
+//                       const color = colors[index % colors.length]
+//                       return (
+//                         <span
+//                           key={index}
+//                           className={`inline-flex items-center rounded-md bg-${color}/15 px-2 py-1 text-${color} text-sm font-medium ring-1 ring-inset ring-${color}/20`}
+//                         >
+//                           {speaker.trim()}
+//                         </span>
+//                       )
+//                     })}
 //                   </div>
-//                 ))}
-//               </div>
-//             </Card>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
 
 //             {/* Venue */}
-//             <Card className="p-6 hover:shadow-lg transition-shadow animate-fade-in delay-200">
-//               <h2 className="text-2xl font-semibold mb-4">Venue</h2>
-//               <div className="flex items-start space-x-2">
-//                 <MapPin className="w-5 h-5 text-[#33C3F0] mt-1" />
-//                 <div>
-//                   <p className="text-gray-700">{event.eventVenue}</p>
-//                   <a
-//                     href={event.eventVenueUrl}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className="text-[#1EAEDB] hover:text-[#0FA0CE] mt-2 inline-block"
-//                   >
-//                     View on Google Maps →
-//                   </a>
-//                 </div>
-//               </div>
-//             </Card>
+//             <motion.div
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, delay: 0.6 }}
+//             >
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Venue</CardTitle>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-start space-x-2">
+//                     <MapPin className="w-5 h-5 text-blue-500 mt-1" />
+//                     <div>
+//                       <p className="text-gray-700">{event.eventVenue}</p>
+//                       <a
+//                         href={event.eventVenueUrl}
+//                         target="_blank"
+//                         rel="noopener noreferrer"
+//                         className="text-blue-500 hover:text-blue-600 mt-2 inline-block"
+//                       >
+//                         View on Google Maps →
+//                       </a>
+//                     </div>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
 //           </div>
 
 //           {/* Sidebar */}
 //           <div className="space-y-6">
 //             {/* Registration Card */}
-//             <Card className="p-6 border-[#D3E4FD] hover:shadow-lg transition-shadow animate-fade-in delay-300">
-//               <h3 className="text-xl font-semibold mb-4">Registration Details</h3>
-//               <div className="space-y-4">
-//                 <div className="flex items-center justify-between">
-//                   <div className="flex items-center space-x-2">
-//                     <CreditCard className="w-5 h-5 text-[#33C3F0]" />
-//                     <span className="text-gray-600">Price</span>
+//             <motion.div
+//               initial={{ opacity: 0, x: 20 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.5, delay: 0.8 }}
+//             >
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Registration Details</CardTitle>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="space-y-4">
+//                     <div className="flex items-center justify-between">
+//                       <div className="flex items-center space-x-2">
+//                         <CreditCard className="w-5 h-5 text-blue-500" />
+//                         <span className="text-gray-600">Price</span>
+//                       </div>
+//                       <span className="font-semibold">₹{event.eventPrice}</span>
+//                     </div>
+//                     <div className="flex items-center justify-between">
+//                       <div className="flex items-center space-x-2">
+//                         <Clock className="w-5 h-5 text-blue-500" />
+//                         <span className="text-gray-600">Last Date</span>
+//                       </div>
+//                       <span className="font-semibold">{format(new Date(event.eventLastDate), "h:mm a")}</span>
+//                     </div>
+//                     <Separator />
+//                     <div className="space-y-2">
+//                       <div className="flex items-center space-x-2">
+//                         <Mail className="w-5 h-5 text-blue-500" />
+//                         <span className="text-gray-600">{event.eventManagerMail}</span>
+//                       </div>
+//                       <div className="flex items-center space-x-2">
+//                         <Phone className="w-5 h-5 text-blue-500" />
+//                         <span className="text-gray-600">{event.eventManagerPhone}</span>
+//                       </div>
+//                     </div>
+//                     {/* <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Register Now</Button> */}
+//                     <Link  href={`/events/${event._id}/register`}>
+//                         <span className="inline-block w-full rounded-md shadow-sm">
+//                           <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Register Now</Button>
+//                         </span>
+
+//                     </Link>
 //                   </div>
-//                   <span className="font-semibold">₹{event.eventPrice}</span>
-//                 </div>
-//                 <div className="flex items-center justify-between">
-//                   <div className="flex items-center space-x-2">
-//                     <Clock className="w-5 h-5 text-[#33C3F0]" />
-//                     <span className="text-gray-600">Last Date</span>
-//                   </div>
-//                   <span className="font-semibold">{format(new Date(event.eventLastDate), "h:mm a")}</span>
-//                 </div>
-//                 <Separator />
-//                 <div className="space-y-2">
-//                   <div className="flex items-center space-x-2">
-//                     <Mail className="w-5 h-5 text-[#33C3F0]" />
-//                     <span className="text-gray-600">{event.eventManagerMail}</span>
-//                   </div>
-//                   <div className="flex items-center space-x-2">
-//                     <Phone className="w-5 h-5 text-[#33C3F0]" />
-//                     <span className="text-gray-600">{event.eventManagerPhone}</span>
-//                   </div>
-//                 </div>
-//                 <Button className="w-full bg-gradient-to-r from-[#1EAEDB] to-[#0FA0CE] text-white hover:shadow-lg">
-//                   Register Now
-//                 </Button>
-//               </div>
-//             </Card>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
 
 //             {/* Hosted By */}
-//             <Card className="p-6 hover:shadow-lg transition-shadow animate-fade-in delay-400">
-//               <h3 className="text-xl font-semibold mb-4">Hosted By</h3>
-//               <div className="flex items-center space-x-2">
-//                 <Users className="w-5 h-5 text-[#33C3F0]" />
-//                 <span className="text-gray-700">{event.eventHostedBy}</span>
-//               </div>
-//             </Card>
+//             <motion.div
+//               initial={{ opacity: 0, x: 20 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.5, delay: 1 }}
+//             >
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Hosted By</CardTitle>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-center space-x-4">
+//                     <Avatar>
+//                       <AvatarImage src={`https://api.dicebear.com/6.x/initials/svg?seed=${event.eventHostedBy}`} />
+//                       <AvatarFallback>
+//                         {event.eventHostedBy
+//                           .split(" ")
+//                           .map((n) => n[0])
+//                           .join("")
+//                           .toUpperCase()}
+//                       </AvatarFallback>
+//                     </Avatar>
+//                     <span className="text-gray-700 font-medium">{event.eventHostedBy}</span>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
 //           </div>
 //         </div>
-           
-        
-        
 //       </div>
 //     </div>
-//   );
-// };
+//   )
+// }
 
-// export default EventDetail;
+// export default EventDetail
+
+
 
 "use client"
 
 import Link from "next/link"
-import { Calendar, MapPin,  Clock, Mail, Phone, CreditCard } from "lucide-react"
+import { Calendar, MapPin, Clock, Mail, Phone, CreditCard } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -172,6 +247,12 @@ import axios from "axios"
 import { format } from "date-fns"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+
+const isEventClosed = (lastDate: string) => {
+  const lastDateObj = new Date(lastDate)
+  const currentDate = new Date()
+  return currentDate > lastDateObj
+}
 
 const EventDetail = ({ params }: { params: { id: string } }) => {
   const { id } = params
@@ -332,7 +413,7 @@ const EventDetail = ({ params }: { params: { id: string } }) => {
                         <Clock className="w-5 h-5 text-blue-500" />
                         <span className="text-gray-600">Last Date</span>
                       </div>
-                      <span className="font-semibold">{format(new Date(event.eventLastDate), "h:mm a")}</span>
+                      <span className="font-semibold">{format(new Date(event.eventLastDate), "MMMM d, yyyy")}</span>
                     </div>
                     <Separator />
                     <div className="space-y-2">
@@ -345,13 +426,15 @@ const EventDetail = ({ params }: { params: { id: string } }) => {
                         <span className="text-gray-600">{event.eventManagerPhone}</span>
                       </div>
                     </div>
-                    {/* <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Register Now</Button> */}
-                    <Link  href={`/events/${event._id}/register`}>
+                    {isEventClosed(event.eventLastDate) ? (
+                      <div className="text-red-500 font-semibold text-center">Event Registration Closed</div>
+                    ) : (
+                      <Link href={`/events/${event._id}/register`}>
                         <span className="inline-block w-full rounded-md shadow-sm">
                           <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Register Now</Button>
                         </span>
-
-                    </Link>
+                      </Link>
+                    )}
                   </div>
                 </CardContent>
               </Card>

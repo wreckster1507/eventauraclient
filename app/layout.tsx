@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Azeret_Mono as Geist_Mono } from 'next/font/google';
 import "./globals.css";
 import {GridBackground} from "../components/GridBackground";
+import { HeroGeometric } from "../components/GridBackground";
 import Liquid from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MouseMoveEffect from "@/components/ui/mouse-move-effect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,10 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
       >
-        <GridBackground />
+        {/* <GridBackground /> */}
+        
         <Liquid />
+        <MouseMoveEffect />
         {children}
         <Footer />
       </body>

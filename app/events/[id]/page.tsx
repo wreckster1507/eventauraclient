@@ -245,7 +245,7 @@ import { Separator } from "@/components/ui/separator"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import axios from "axios"
 import { format } from "date-fns"
-import { useEffect, useState } from "react"
+import React,{ useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 const isEventClosed = (lastDate: string) => {
@@ -255,7 +255,9 @@ const isEventClosed = (lastDate: string) => {
 }
 
 const EventDetail = ({ params }: { params: { id: string } }) => {
-  const { id } = params
+  const unWrappedParams = React.use(params)
+  // const { id } = params
+  const { id } = unWrappedParams
   const [event, setEvent] = useState<any>(null)
   const [loading, setLoading] = useState<boolean>(true)
 

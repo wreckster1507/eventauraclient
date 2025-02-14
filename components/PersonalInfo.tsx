@@ -140,7 +140,7 @@ interface PersonalInfoProps {
   formData: {
     name: string
     email: string
-    phone: string
+    phoneNumber: string
   }
   updateFormData: (data: Partial<PersonalInfoProps["formData"]>) => void
   onSubmit: () => void
@@ -195,8 +195,8 @@ export const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, updateForm
             <Input
               id="phone"
               type="tel"
-              value={formData.phone}
-              onChange={(e) => updateFormData({ phone: e.target.value })}
+              value={formData.phoneNumber}
+              onChange={(e) => updateFormData({ phoneNumber: e.target.value })}
               placeholder="Enter your phone number"
               className="w-full px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400"
             />

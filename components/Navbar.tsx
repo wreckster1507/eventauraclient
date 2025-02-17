@@ -102,6 +102,7 @@ const Liquid = () => {
     { name: "home", url: "/" },
     { name: "about", url: "/about" },
     { name: "events", url: "/events" },
+    {name:"hackathons", url:"/hackathons"},
     { name: "contact", url: "/contact" },
   ]
 

@@ -3,6 +3,7 @@
 "use client"
 
 import Link from "next/link"
+import { AppProps } from "next/app"
 
 import { Calendar, MapPin, Clock, Mail, Phone, CreditCard } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -30,12 +31,12 @@ interface Event {
   eventHostedBy: string
 }
 
-interface EventDetailProps {
+interface EventDetailProps extends AppProps {
   params: {
     id: string
   }
+
   searchParams?: Record<string, string | string[] | undefined>;
-  
 
 }
 

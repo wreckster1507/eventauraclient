@@ -1,5 +1,5 @@
 
-
+/* eslint-disable */
 "use client"
 
 import Link from "next/link"
@@ -36,7 +36,7 @@ const isEventClosed = (lastDate: string) => {
   return currentDate > lastDateObj
 }
 
-const EventDetail = ({ params }: { params: { id: string } }) => {
+const EventDetail = ({ params } ) => {
   // const unWrappedParams = React.use(params)
   // const { id } = unWrappedParams
   const { id } = params

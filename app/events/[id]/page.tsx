@@ -29,6 +29,13 @@ interface Event {
   eventHostedBy: string
 }
 
+interface EventDetailProps {
+  params: {
+    id: string
+  }
+}
+
+
 // Helper function to check if the event is closed
 const isEventClosed = (lastDate: string) => {
   const lastDateObj = new Date(lastDate)
@@ -36,7 +43,7 @@ const isEventClosed = (lastDate: string) => {
   return currentDate > lastDateObj
 }
 
-const EventDetail = ({ params } ) => {
+const EventDetail = ({ params }:EventDetailProps ) => {
   // const unWrappedParams = React.use(params)
   // const { id } = unWrappedParams
   const { id } = params

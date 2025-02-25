@@ -261,7 +261,6 @@
 // export default EventDetail
 
 
-
 "use client"
 
 import Link from "next/link"
@@ -274,6 +273,7 @@ import axios from "axios"
 import { format } from "date-fns"
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+// import { GetServerSideProps } from "next"
 
 // Define the Event interface
 interface Event {

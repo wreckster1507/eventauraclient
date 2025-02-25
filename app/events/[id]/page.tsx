@@ -4,6 +4,7 @@
 "use client"
 
 import Link from "next/link"
+import { useParams } from 'next/navigation'
 
 import { Calendar, MapPin, Clock, Mail, Phone, CreditCard } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -47,10 +48,12 @@ const isEventClosed = (lastDate: string) => {
   return currentDate > lastDateObj
 }
 
-const EventDetail = ({ params }:EventDetailProps ) => {
+const EventDetail = ( ) => {
   // const unWrappedParams = React.use(params)
   // const { id } = unWrappedParams
-  const { id } = params
+  const params = useParams()
+  const id = params.id
+  // const { id } = params
   const [event, setEvent] = useState<Event | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 

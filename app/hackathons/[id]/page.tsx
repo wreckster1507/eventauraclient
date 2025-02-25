@@ -1,5 +1,5 @@
 /* eslint-disable */
-// @ts-nocheck
+
 "use client"
 
 import Link from "next/link"
@@ -18,7 +18,7 @@ const isHackathonClosed = (hackathonDate: string) => {
   return currentDate > hackathonDateObj
 }
 
-const HackathonDetail = ({ params }) => {
+const HackathonDetail = () => {
   const hackathon = {
     id: "hackathon_1",
     hackathonName: "Code Innovate 2025",

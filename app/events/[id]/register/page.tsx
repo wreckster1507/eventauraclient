@@ -115,6 +115,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { TermsAndConditions } from "@/components/TermsAndConditions"
 import { PersonalInfo } from "@/components/PersonalInfo"
 import { PaymentStep } from "@/components/PaymentStep"
+import { useParams } from "next/navigation"
 import axios from "axios"
 
 // Define the EventDetails interface
@@ -133,7 +134,7 @@ interface EventDetails {
   eventSpeaker: string
 }
 
-const Index = ({ params }) => {
+const Index = () => {
   const [currentStep, setCurrentStep] = useState(0)
   const [formData, setFormData] = useState({
     name: "",
@@ -141,8 +142,8 @@ const Index = ({ params }) => {
     phoneNumber: "",
   })
   const [eventDetails, setEventDetails] = useState<EventDetails | null>(null)
-  const unWrappedParams = React.use(params)
-  const { id } = unWrappedParams
+  const params = useParams()
+  const id = params.id
 
   useEffect(() => {
     const fetchEventDetails = async () => {

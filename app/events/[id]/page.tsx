@@ -37,8 +37,9 @@
 // }
 
 // const EventDetail = ({ params }: { params: { id: string } }) => {
-//   const unWrappedParams = React.use(params)
-//   const { id } = unWrappedParams
+//   // const unWrappedParams = React.use(params)
+//   // const { id } = unWrappedParams
+//   const { id } = params
 //   const [event, setEvent] = useState<Event | null>(null)
 //   const [loading, setLoading] = useState<boolean>(true)
 
@@ -259,6 +260,8 @@
 
 // export default EventDetail
 
+
+
 "use client"
 
 import Link from "next/link"
@@ -288,6 +291,13 @@ interface Event {
   eventHostedBy: string
 }
 
+// Define the props for the EventDetail component
+interface EventDetailProps {
+  params: {
+    id: string
+  }
+}
+
 // Helper function to check if the event is closed
 const isEventClosed = (lastDate: string) => {
   const lastDateObj = new Date(lastDate)
@@ -295,9 +305,8 @@ const isEventClosed = (lastDate: string) => {
   return currentDate > lastDateObj
 }
 
-const EventDetail = ({ params }: { params: { id: string } }) => {
-  const unWrappedParams = React.use(params)
-  const { id } = unWrappedParams
+const EventDetail = ({ params }: EventDetailProps) => {
+  const { id } = params
   const [event, setEvent] = useState<Event | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 

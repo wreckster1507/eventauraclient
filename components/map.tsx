@@ -133,47 +133,47 @@
 
 
 
-import React, { useEffect, useRef } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import React, { useEffect, useRef } from 'react';
+// import mapboxgl from 'mapbox-gl';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
-const MapComponent = ({ latitude, longitude }) => {
-  const mapContainerRef = useRef(null);
-  const mapRef = useRef(null);
+// const MapComponent = ({ latitude, longitude }) => {
+//   const mapContainerRef = useRef(null);
+//   const mapRef = useRef(null);
 
-  // Set Mapbox token
-  mapboxgl.accessToken = 'pk.eyJ1Ijoid3JlY2tzdGVyMTUwNyIsImEiOiJjbHF0YmlqaGsyNmF0Mmltd3BzeHozY3dvIn0.9O9es4coT63vv1FBGriEQA';
+//   // Set Mapbox token
+//   mapboxgl.accessToken = 'pk.eyJ1Ijoid3JlY2tzdGVyMTUwNyIsImEiOiJjbHF0YmlqaGsyNmF0Mmltd3BzeHozY3dvIn0.9O9es4coT63vv1FBGriEQA';
 
-  useEffect(() => {
-    // Create a new map instance
-    mapRef.current = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [longitude, latitude], // Use props here
-      zoom: 15,
-    });
+//   useEffect(() => {
+//     // Create a new map instance
+//     mapRef.current = new mapboxgl.Map({
+//       container: mapContainerRef.current,
+//       style: 'mapbox://styles/mapbox/streets-v11',
+//       center: [longitude, latitude], // Use props here
+//       zoom: 15,
+//     });
 
-    // Wait for the map to load before placing the marker
-    mapRef.current.on('load', () => {
-      // Create and place a marker at the given coordinates
-      new mapboxgl.Marker()
-        .setLngLat([longitude, latitude]) // Use props here
-        .addTo(mapRef.current);
-    });
+//     // Wait for the map to load before placing the marker
+//     mapRef.current.on('load', () => {
+//       // Create and place a marker at the given coordinates
+//       new mapboxgl.Marker()
+//         .setLngLat([longitude, latitude]) // Use props here
+//         .addTo(mapRef.current);
+//     });
 
-    return () => {
-      mapRef.current.remove(); // Clean up the map when the component unmounts
-    };
-  }, [latitude, longitude]); // Add latitude and longitude to the dependency array
+//     return () => {
+//       mapRef.current.remove(); // Clean up the map when the component unmounts
+//     };
+//   }, [latitude, longitude]); // Add latitude and longitude to the dependency array
 
-  return (
-    <div>
-      <div
-        ref={mapContainerRef}
-        style={{ width: '100%', height: '500px' }}
-      ></div>
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <div
+//         ref={mapContainerRef}
+//         style={{ width: '100%', height: '500px' }}
+//       ></div>
+//     </div>
+//   );
+// };
 
-export default MapComponent;
+// export default MapComponent;

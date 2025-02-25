@@ -1,4 +1,10 @@
-const ButtonHover11 = ({ text }) => {
+import React from 'react';
+
+interface ButtonHover11Props {
+  text: string;
+}
+
+const ButtonHover11: React.FC<ButtonHover11Props> = ({ text }) => {
     return (
       <>
         <button className="group relative flex h-12 w-[170px] items-center justify-between border-2 dark:border-[#656fe2] border-[#394481] rounded-full bg-gradient-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f7f8ff] to-[#ffffff] font-medium dark:text-neutral-200 text-black">

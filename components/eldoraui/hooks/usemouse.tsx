@@ -9,7 +9,6 @@ interface MouseState {
   elementPositionX: number | null;
   elementPositionY: number | null;
 }
-
 export function useMouse(): [MouseState, RefObject<HTMLDivElement>] {
   const [state, setState] = useState<MouseState>({
     x: null,
@@ -19,8 +18,7 @@ export function useMouse(): [MouseState, RefObject<HTMLDivElement>] {
     elementPositionX: null,
     elementPositionY: null,
   });
-
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement>(null as unknown as HTMLDivElement); // Force non-null initialization
 
   useLayoutEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -28,20 +26,17 @@ export function useMouse(): [MouseState, RefObject<HTMLDivElement>] {
         x: event.pageX,
         y: event.pageY,
       };
-
       if (ref.current instanceof Element) {
         const { left, top } = ref.current.getBoundingClientRect();
         const elementPositionX = left + window.scrollX;
         const elementPositionY = top + window.scrollY;
         const elementX = event.pageX - elementPositionX;
         const elementY = event.pageY - elementPositionY;
-
         newState.elementX = elementX;
         newState.elementY = elementY;
         newState.elementPositionX = elementPositionX;
         newState.elementPositionY = elementPositionY;
       }
-
       setState((s) => ({
         ...s,
         ...newState,
@@ -49,7 +44,6 @@ export function useMouse(): [MouseState, RefObject<HTMLDivElement>] {
     };
 
     document.addEventListener("mousemove", handleMouseMove);
-
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };

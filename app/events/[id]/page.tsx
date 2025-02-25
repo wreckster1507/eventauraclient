@@ -35,9 +35,7 @@ interface EventDetailProps {
     id: string
   }
   searchParams?: Record<string, string | string[] | undefined>;
-  then?:any;
-  catch?:any;
-  finally?:any;
+  
 
 }
 

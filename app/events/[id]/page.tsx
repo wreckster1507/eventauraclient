@@ -1,7 +1,5 @@
 
 
-
-
 // "use client"
 
 // import Link from "next/link"
@@ -12,9 +10,26 @@
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 // import axios from "axios"
 // import { format } from "date-fns"
-// import React,{ useEffect, useState } from "react"
+// import React, { useEffect, useState } from "react"
 // import { motion } from "framer-motion"
 
+// // Define the Event interface
+// interface Event {
+//   _id: string
+//   eventName: string
+//   eventDate: string
+//   eventDescription: string
+//   eventSpeaker: string
+//   eventVenue: string
+//   eventVenueUrl: string
+//   eventPrice: number
+//   eventLastDate: string
+//   eventManagerMail: string
+//   eventManagerPhone: string
+//   eventHostedBy: string
+// }
+
+// // Helper function to check if the event is closed
 // const isEventClosed = (lastDate: string) => {
 //   const lastDateObj = new Date(lastDate)
 //   const currentDate = new Date()
@@ -23,15 +38,14 @@
 
 // const EventDetail = ({ params }: { params: { id: string } }) => {
 //   const unWrappedParams = React.use(params)
-//   // const { id } = params
 //   const { id } = unWrappedParams
-//   const [event, setEvent] = useState<any>(null)
+//   const [event, setEvent] = useState<Event | null>(null)
 //   const [loading, setLoading] = useState<boolean>(true)
 
 //   useEffect(() => {
 //     const fetchEventDetails = async () => {
 //       try {
-//         const response = await axios.get(`https://api.eventaura.tech/event/${id}`)
+//         const response = await axios.get<{ data: Event }>(`https://api.eventaura.tech/event/${id}`)
 //         setEvent(response.data.data)
 //       } catch (error) {
 //         console.error("Error fetching event details:", error)
@@ -244,7 +258,6 @@
 // }
 
 // export default EventDetail
-
 
 "use client"
 

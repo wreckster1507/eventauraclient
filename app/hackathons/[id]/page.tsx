@@ -17,7 +17,7 @@ const isHackathonClosed = (hackathonDate: string) => {
   return currentDate > hackathonDateObj
 }
 
-const HackathonDetail = ({ params }: { params: { id: string } }) => {
+const HackathonDetail = ({ params }) => {
   const hackathon = {
     id: "hackathon_1",
     hackathonName: "Code Innovate 2025",

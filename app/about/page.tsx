@@ -6,7 +6,6 @@ import { ArrowRight, Award, Users, Zap } from 'lucide-react'
 import { GradualSpacing } from '@/components/eldoraui/gradualspacing'
 import { AuroraText } from '@/components/ui/AuroraText'
 import TeamOne from '@/components/Team'
-import { StaggeredFade } from '@/components/fadein'
 import { MainMenusGradientCard } from '@/components/eldoraui/animatedcard'
 
 const AboutPage = () => {

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { format } from "date-fns"
-import React, { useState } from "react"
+import React from "react"
 import { motion } from "framer-motion"
 
 const isHackathonClosed = (hackathonDate: string) => {

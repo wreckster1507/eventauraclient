@@ -88,7 +88,7 @@
 
 // export default Liquid;
 
-
+/* eslint-disable */
 "use client"
 
 import { cn } from "@/lib/utils"

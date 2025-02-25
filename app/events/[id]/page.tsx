@@ -1,20 +1,30 @@
 
 
+
+
 // "use client"
 
 // import Link from "next/link"
-// import { Calendar, MapPin,  Clock, Mail, Phone, CreditCard } from "lucide-react"
+// import { Calendar, MapPin, Clock, Mail, Phone, CreditCard } from "lucide-react"
 // import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 // import { Button } from "@/components/ui/button"
 // import { Separator } from "@/components/ui/separator"
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 // import axios from "axios"
 // import { format } from "date-fns"
-// import { useEffect, useState } from "react"
+// import React,{ useEffect, useState } from "react"
 // import { motion } from "framer-motion"
 
+// const isEventClosed = (lastDate: string) => {
+//   const lastDateObj = new Date(lastDate)
+//   const currentDate = new Date()
+//   return currentDate > lastDateObj
+// }
+
 // const EventDetail = ({ params }: { params: { id: string } }) => {
-//   const { id } = params
+//   const unWrappedParams = React.use(params)
+//   // const { id } = params
+//   const { id } = unWrappedParams
 //   const [event, setEvent] = useState<any>(null)
 //   const [loading, setLoading] = useState<boolean>(true)
 
@@ -172,7 +182,7 @@
 //                         <Clock className="w-5 h-5 text-blue-500" />
 //                         <span className="text-gray-600">Last Date</span>
 //                       </div>
-//                       <span className="font-semibold">{format(new Date(event.eventLastDate), "h:mm a")}</span>
+//                       <span className="font-semibold">{format(new Date(event.eventLastDate), "MMMM d, yyyy")}</span>
 //                     </div>
 //                     <Separator />
 //                     <div className="space-y-2">
@@ -185,13 +195,15 @@
 //                         <span className="text-gray-600">{event.eventManagerPhone}</span>
 //                       </div>
 //                     </div>
-//                     {/* <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Register Now</Button> */}
-//                     <Link  href={`/events/${event._id}/register`}>
+//                     {isEventClosed(event.eventLastDate) ? (
+//                       <div className="text-red-500 font-semibold text-center">Event Registration Closed</div>
+//                     ) : (
+//                       <Link href={`/events/${event._id}/register`}>
 //                         <span className="inline-block w-full rounded-md shadow-sm">
 //                           <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">Register Now</Button>
 //                         </span>
-
-//                     </Link>
+//                       </Link>
+//                     )}
 //                   </div>
 //                 </CardContent>
 //               </Card>
@@ -234,7 +246,6 @@
 // export default EventDetail
 
 
-
 "use client"
 
 import Link from "next/link"
@@ -245,9 +256,26 @@ import { Separator } from "@/components/ui/separator"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import axios from "axios"
 import { format } from "date-fns"
-import React,{ useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
+// Define the Event interface
+interface Event {
+  _id: string
+  eventName: string
+  eventDate: string
+  eventDescription: string
+  eventSpeaker: string
+  eventVenue: string
+  eventVenueUrl: string
+  eventPrice: number
+  eventLastDate: string
+  eventManagerMail: string
+  eventManagerPhone: string
+  eventHostedBy: string
+}
+
+// Helper function to check if the event is closed
 const isEventClosed = (lastDate: string) => {
   const lastDateObj = new Date(lastDate)
   const currentDate = new Date()
@@ -256,15 +284,14 @@ const isEventClosed = (lastDate: string) => {
 
 const EventDetail = ({ params }: { params: { id: string } }) => {
   const unWrappedParams = React.use(params)
-  // const { id } = params
   const { id } = unWrappedParams
-  const [event, setEvent] = useState<any>(null)
+  const [event, setEvent] = useState<Event | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        const response = await axios.get(`https://api.eventaura.tech/event/${id}`)
+        const response = await axios.get<{ data: Event }>(`https://api.eventaura.tech/event/${id}`)
         setEvent(response.data.data)
       } catch (error) {
         console.error("Error fetching event details:", error)
@@ -477,4 +504,3 @@ const EventDetail = ({ params }: { params: { id: string } }) => {
 }
 
 export default EventDetail
-

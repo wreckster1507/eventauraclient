@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { NeonGradientCard } from './ui/NeonCard'
-import { ColourfulText } from './ui/colourful-text'
+// import { ColourfulText } from './ui/colourful-text'
 import { NumberTicker } from './ui/number-ticker'
 
 export default function PricingCalculator() {

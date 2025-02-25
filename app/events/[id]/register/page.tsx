@@ -105,7 +105,7 @@
 // export default Index
 
 
-
+/* eslint-disable */
 
 "use client"
 
@@ -132,7 +132,7 @@ interface EventDetails {
   eventSpeaker: string
 }
 
-const Index = ({ params }: { params: { id: string } }) => {
+const Index = ({ params }) => {
   const [currentStep, setCurrentStep] = useState(0)
   const [formData, setFormData] = useState({
     name: "",

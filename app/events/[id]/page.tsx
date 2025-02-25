@@ -3,6 +3,7 @@
 "use client"
 
 import Link from "next/link"
+
 import { Calendar, MapPin, Clock, Mail, Phone, CreditCard } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -33,6 +34,11 @@ interface EventDetailProps {
   params: {
     id: string
   }
+  searchParams?: Record<string, string | string[] | undefined>;
+  then?:any;
+  catch?:any;
+  finally?:any;
+
 }
 
 
@@ -266,4 +272,3 @@ const EventDetail = ({ params }:EventDetailProps ) => {
 }
 
 export default EventDetail
-

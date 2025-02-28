@@ -22,7 +22,7 @@ export default function HackathonCard({
   hackathonName,
   hackathonDescription,
   hackathonVenue,
-  hackathonVenueUrl,
+  // hackathonVenueUrl,
   hackathonDate,
   hackathonPrice,
   hackathonStatus,

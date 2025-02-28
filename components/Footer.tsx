@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-gray-100">
           <p className="text-gray-500 text-sm text-center">
-            © {currentYear} Your Company. All rights reserved.
+            © {currentYear} EventAura. All rights reserved.
           </p>
         </div>
       </div>

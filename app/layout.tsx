@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Azeret_Mono as Geist_Mono } from 'next/font/google';
 import "./globals.css";
-import {GridBackground} from "../components/GridBackground";
-import { HeroGeometric } from "../components/GridBackground";
+// import {GridBackground} from "../components/GridBackground";
+// import { HeroGeometric } from "../components/GridBackground";
 import Liquid from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MouseMoveEffect from "@/components/ui/mouse-move-effect";

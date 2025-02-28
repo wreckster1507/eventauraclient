@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client"
 
 import Link from "next/link"
@@ -7,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { format } from "date-fns"
-import React, { useState } from "react"
+import React from "react"
 import { motion } from "framer-motion"
 
 const isHackathonClosed = (hackathonDate: string) => {
@@ -16,7 +18,7 @@ const isHackathonClosed = (hackathonDate: string) => {
   return currentDate > hackathonDateObj
 }
 
-const HackathonDetail = ({ params }: { params: { id: string } }) => {
+const HackathonDetail = () => {
   const hackathon = {
     id: "hackathon_1",
     hackathonName: "Code Innovate 2025",

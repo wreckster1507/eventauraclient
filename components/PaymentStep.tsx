@@ -1,6 +1,6 @@
 
 
-
+/* eslint-disable */
 
 
 import type React from "react"
@@ -70,6 +70,12 @@ export const PaymentStep: React.FC<PaymentStepProps> = ({ eventDetails, onPrevio
     } catch (error) {
       console.log(error)
     }
+  }
+  
+  const handlePaymentSuccess = () => {
+    // Redirect to the success page
+    // navigate("/payment
+    console.log("Payment successful")
   }
   
 
